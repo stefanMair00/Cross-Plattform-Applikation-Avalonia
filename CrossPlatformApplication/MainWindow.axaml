@@ -21,7 +21,8 @@
         </Style>
 
         <Style Selector="Button.special:pointerover">
-            <Setter Property="Background" Value="#E5E4E2"/>
+			<Setter Property="Background" Value="#E5E4E2"/>
+			<Setter Property="Foreground" Value="Black"/>
         </Style>
     </Window.Styles>
     <Grid>
