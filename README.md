@@ -1,6 +1,11 @@
 ## Bachelorarbeit
 „Cross-Plattform-Entwicklung mit C#: Möglichkeiten, Herausforderungen und Best Practices"
 #
+Unterstützte Systeme:
+- Windows
+- macOS
+- Linux
+#
 Funktionen:
 - Daten laden und Graphen zeichnen
 - Daten laden und Graphen zeichnen unter Multithreading
