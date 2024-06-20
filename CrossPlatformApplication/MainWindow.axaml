@@ -12,6 +12,18 @@
         CanResize="False"
         Background="#F5F5F5"
         x:DataType="local:MainWindow">
+	<Window.Styles>
+        <Style Selector="Button.special">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+
+        <Style Selector="Button.special:pointerover">
+            <Setter Property="Background" Value="#E5E4E2"/>
+        </Style>
+    </Window.Styles>
     <Grid>
         <Grid Name="LoadingGrid"
               ZIndex="1"
@@ -41,12 +53,14 @@
             <TextBlock Text="Cross-Plattform-Entwicklung mit C#"
                        FontSize="24"
                        FontWeight="Bold"
+                       Foreground="Black"
                        HorizontalAlignment="Center"
                        Margin="0,20,0,5" />
 
             <TextBlock Text="Möglichkeiten, Herausforderungen und Best Practices"
                        Grid.Row="1"
                        FontSize="14"
+                       Foreground="Black"
                        HorizontalAlignment="Center"
                        Margin="0,0,0,20" />
 
@@ -62,6 +76,7 @@
                        Text="Funktionen "
                        FontSize="18"
                        FontWeight="Bold"
+                       Foreground="Black"
                        HorizontalAlignment="Center"
                        Margin="0,20,0,0" />
 
@@ -71,20 +86,29 @@
                         HorizontalAlignment="Center"
                         Margin="0,10,0,20">
                 <Button Name="LoadDataButton"
+                        Classes="special"
                         Click="LoadData"
                         Content="Daten laden"
+                        Foreground="Black"
+                        Background="#D3D3D3"
                         HorizontalContentAlignment="Center"
                         Width="200"
                         Margin="10" />
                 <Button Name="MultiThreadingButton"
+                        Classes="special"
                         Click="StartMultiThreadingAsync"
                         Content="Multithreading starten"
+                        Foreground="Black"
+                        Background="#D3D3D3"
                         Width="200"
                         HorizontalContentAlignment="Center"
                         Margin="10" />
                 <Button Name="DeleteGraphButton"
+                        Classes="special"
                         Click="ClearGraph"
                         Content="Graph löschen"
+                        Foreground="Black"
+                        Background="#D3D3D3"
                         Width="200"
                         HorizontalContentAlignment="Center"
                         Margin="10" />
@@ -116,6 +140,7 @@
             <TextBlock Grid.Row="3" Text="Messwerte "
                        FontSize="18"
                        FontWeight="Bold"
+                       Foreground="Black"
                        HorizontalAlignment="Center"
                        Margin="0,180,0,5" />
 
@@ -143,6 +168,7 @@
                         BorderBrush="Black"
                         BorderThickness="1">
                     <TextBlock Text="Startzeit der Anwendung"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center" />
                 </Border>
@@ -152,6 +178,7 @@
                         BorderThickness="1">
                     <TextBlock Name="StartUpTimeTextBlock"
                                Text="0 s"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center" />
                 </Border>
@@ -162,6 +189,7 @@
                         BorderBrush="Black"
                         BorderThickness="1">
                     <TextBlock Text="Daten laden"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center" />
                 </Border>
@@ -171,6 +199,7 @@
                         BorderThickness="1">
                     <TextBlock Name="LoadTimeTextBlock"
                                Text="0 s"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center" />
                 </Border>
@@ -181,6 +210,7 @@
                         BorderBrush="Black"
                         BorderThickness="1">
                     <TextBlock Text="Multithreading"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center" />
                 </Border>
@@ -190,6 +220,7 @@
                         BorderThickness="1">
                     <TextBlock Name="MultiThreadingTimeTextBlock"
                                Text="0 s"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center" />
                 </Border>
@@ -200,6 +231,7 @@
                         BorderBrush="Black"
                         BorderThickness="1">
                     <TextBlock Text="Daten löschen"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center" />
                 </Border>
@@ -209,6 +241,7 @@
                         BorderThickness="1">
                     <TextBlock Name="DeleteTimeTextBlock"
                                Text="0 μs"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center" />
                 </Border>
@@ -220,6 +253,7 @@
                        FontSize="12"
                        Margin="0,0,0,80"
                        FontWeight="Light"
+                       Foreground="Black"
                        VerticalAlignment="Bottom"
                        HorizontalAlignment="Left" />
 
@@ -228,6 +262,7 @@
                        FontSize="12"
                        Margin="0,0,0,80"
                        FontWeight="Light"
+                       Foreground="Black"
                        VerticalAlignment="Bottom"
                        HorizontalAlignment="Right" />
         </Grid>
