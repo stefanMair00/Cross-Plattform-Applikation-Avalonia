@@ -1,0 +1,235 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:local="clr-namespace:CrossPlatformApplication"
+        xmlns:viewModels="clr-namespace:CrossPlatformApplication.ViewModels"
+        x:Class="CrossPlatformApplication.MainWindow"
+        Title="Bachelorthesis | Cross-Plattform-Applikation"
+        Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False"
+        Background="#F5F5F5"
+        x:DataType="local:MainWindow">
+    <Grid>
+        <Grid Name="LoadingGrid"
+              ZIndex="1"
+              Background="Black"
+              Opacity="0.8"
+              IsVisible="False"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
+            <TextBlock Text="Wird geladen..."
+                       FontSize="32"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White" />
+        </Grid>
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--Header-->
+            <TextBlock Text="Cross-Plattform-Entwicklung mit C#"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,20,0,5" />
+
+            <TextBlock Text="Möglichkeiten, Herausforderungen und Best Practices"
+                       Grid.Row="1"
+                       FontSize="14"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20" />
+
+            <!--Seperator-->
+            <Separator Grid.Row="2"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       Background="Red"
+                       Margin="50,0, 50, 150" />
+
+            <!--2nd header-->
+            <TextBlock Grid.Row="2"
+                       Text="Funktionen "
+                       FontSize="18"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,20,0,0" />
+
+            <!--Buttons-->
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,10,0,20">
+                <Button Name="LoadDataButton"
+                        Click="LoadData"
+                        Content="Daten laden"
+                        HorizontalContentAlignment="Center"
+                        Width="200"
+                        Margin="10" />
+                <Button Name="MultiThreadingButton"
+                        Click="StartMultiThreadingAsync"
+                        Content="Multithreading starten"
+                        Width="200"
+                        HorizontalContentAlignment="Center"
+                        Margin="10" />
+                <Button Name="DeleteGraphButton"
+                        Click="ClearGraph"
+                        Content="Graph löschen"
+                        Width="200"
+                        HorizontalContentAlignment="Center"
+                        Margin="10" />
+            </StackPanel>
+
+            <!--Graphs-->
+            <viewModels:GraphControl Grid.Row="3"
+                                     Name="LeftGraphCanvas"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Margin="0,80,800,0"
+                                     Height="600" />
+
+            <viewModels:GraphControl Grid.Row="3"
+                                     Name="RightGraphCanvas"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Margin="0,80,0,0"
+                                     Height="600" />
+
+            <!--Seperator-->
+            <Separator Grid.Row="3"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       Background="Red"
+                       Margin="50,60, 50, 150" />
+
+            <!--2nd header-->
+            <TextBlock Grid.Row="3" Text="Messwerte "
+                       FontSize="18"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,180,0,5" />
+
+            <!--Table-->
+            <Grid Row="3"
+                  Margin="0,220,0,5"
+                  HorizontalAlignment="Center">
+                <!-- Define columns -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300" />
+                    <ColumnDefinition Width="300" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Define rows -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- First row -->
+                <Border Grid.Row="0"
+                        Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Text="Startzeit der Anwendung"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+                <Border Grid.Row="0"
+                        Grid.Column="1"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Name="StartUpTimeTextBlock"
+                               Text="0 s"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+
+                <!-- Second row -->
+                <Border Grid.Row="1"
+                        Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Text="Daten laden"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+                <Border Grid.Row="1"
+                        Grid.Column="1"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Name="LoadTimeTextBlock"
+                               Text="0 s"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+
+                <!-- Third row -->
+                <Border Grid.Row="2"
+                        Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Text="Multithreading"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+                <Border Grid.Row="2"
+                        Grid.Column="1"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Name="MultiThreadingTimeTextBlock"
+                               Text="0 s"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+
+                <!-- Fourth row -->
+                <Border Grid.Row="3"
+                        Grid.Column="0"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Text="Daten löschen"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+                <Border Grid.Row="3"
+                        Grid.Column="1"
+                        BorderBrush="Black"
+                        BorderThickness="1">
+                    <TextBlock Name="DeleteTimeTextBlock"
+                               Text="0 μs"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" />
+                </Border>
+            </Grid>
+
+            <!--Footer-->
+            <TextBlock Grid.Row="3"
+                       Text="©Mair Stefan"
+                       FontSize="12"
+                       Margin="0,0,0,80"
+                       FontWeight="Light"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Left" />
+
+            <TextBlock Grid.Row="3"
+                       Text="2024"
+                       FontSize="12"
+                       Margin="0,0,0,80"
+                       FontWeight="Light"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Right" />
+        </Grid>
+    </Grid>
+</Window>
